@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonTunes - YouTube Music Player</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <span>NeonTunes</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><i class="fas fa-home"></i> Home</li>
+                    <li><i class="fas fa-search"></i> Search</li>
+                    <li><i class="fas fa-list"></i> Your Library</li>
+                </ul>
+            </nav>
+            <div class="playlists">
+                <h3>YOUR PLAYLISTS</h3>
+                <ul id="playlist-list">
+                    <!-- Playlists will be added here dynamically -->
+                </ul>
+                <button id="create-playlist-btn"><i class="fas fa-plus"></i> Create Playlist</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="search-bar">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search for songs, artists, or albums...">
+                </div>
+            </div>
+
+            <div class="content">
+                <h1>Welcome back</h1>
+                <div class="song-grid" id="search-results">
+                    <!-- Search results will appear here -->
+                </div>
+
+                <h2>Your Playlists</h2>
+                <div class="playlist-grid" id="user-playlists">
+                    <!-- User playlists will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="player-controls">
+            <div class="song-info">
+                <div class="song-cover" id="current-song-cover">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="song-details">
+                    <span id="current-song-title">Not Playing</span>
+                    <span id="current-song-artist">-</span>
+                </div>
+                <button class="like-btn"><i class="far fa-heart"></i></button>
+            </div>
+            <div class="player-main-controls">
+                <div class="player-buttons">
+                    <button id="shuffle-btn"><i class="fas fa-random"></i></button>
+                    <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                    <button id="play-btn"><i class="fas fa-play"></i></button>
+                    <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+                    <button id="repeat-btn"><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="progress-container">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            <div class="player-extra-controls">
+                <button id="queue-btn"><i class="fas fa-list"></i></button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volume-slider" min="0" max="100" value="50">
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden YouTube Player -->
+        <div id="youtube-player"></div>
+
+        <!-- Modal for playlist creation -->
+        <div class="modal" id="playlist-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Create New Playlist</h2>
+                <input type="text" id="playlist-name-input" placeholder="Playlist name">
+                <button id="save-playlist-btn">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
